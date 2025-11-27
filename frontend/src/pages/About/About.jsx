@@ -1,11 +1,13 @@
 import React from 'react';
-import './About.css';
+import "../../index.css";   // if file is inside pages/About/
+
+
 
 const About = () => {
   return (
     <div className="about-container">
       <div className="about-content">
-        <h1>Momo Magic Cafe</h1>
+        <h1 className='text-amber-300 text-8xl' >Momo Magic Cafe</h1>
         <p>
           Welcome to Momo Magic Cafe — where flavor meets warmth. Nestled in the heart of Bhilai, we started our journey with one simple idea: 
           to bring people together over plates of freshly steamed and perfectly spiced momos. 
