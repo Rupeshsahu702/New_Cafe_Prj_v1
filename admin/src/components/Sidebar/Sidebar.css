@@ -1,0 +1,91 @@
+:root{
+  --sidebar-width: 260px;
+}
+
+/* Desktop: static column that takes space */
+.sidebar{
+  width: 18%;
+  min-height: 100vh;
+  border: 1.5px solid #A9A9A9;
+  border-top: 0;
+  background: #fff;
+  font-size: max(1vw,10px);
+}
+
+.sidebar-header{
+  display: none; /* desktop doesn't need close button/header */
+}
+
+.sidebar-options{
+  padding-top: 50px;
+  padding-left: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-option{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #A9A9A9;
+  border-right: 0;
+  padding: 8px 10px;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+}
+.sidebar-option img{ width:20px; }
+.sidebar-option.active{ background:#fff0ed; border-color:tomato; }
+
+/* Overlay hidden by default on desktop */
+.sidebar-overlay{ display:none; }
+
+/* -------- Mobile: turn into drawer -------- */
+@media (max-width: 900px){
+  .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    max-width: 80%;
+    height: 100vh;
+    z-index: 1100;
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+    border-right: 1.5px solid #A9A9A9;
+    border-left: 0;
+  }
+  .sidebar.open{ transform: translateX(0); }
+
+  .sidebar-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+  }
+  .sidebar-header h2{
+    margin: 0;
+    font-size: 16px;
+    color: #444;
+  }
+  .close-btn{
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .sidebar-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.25);
+    z-index: 1000;
+    display: none;
+  }
+  .sidebar-overlay.show{ display:block; }
+
+  /* keep labels visible on mobile drawer */
+  .sidebar-option p{ display: block; }
+}

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* -----------------------------
+   GLOBAL RESET & BASE STYLES
+----------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Ensure full height structure for sticky footer layout */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* -----------------------------
+   GLOBAL LINK STYLE
+----------------------------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* -----------------------------
+   APP CONTAINER
+   Used in App.jsx to wrap all content
+----------------------------- */
+.app {
+  width: 80%;
+  margin: auto;
+}
+
+/* Page shell ensures footer stays at bottom */
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content between navbar and footer */
+.page-content {
+  flex: 1;
+  display: block;
+}
+
+/* -----------------------------
+   ANIMATIONS
+----------------------------- */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* -----------------------------
+   RESPONSIVE DESIGN
+----------------------------- */
+@media (max-width: 1050px) {
+  .app {
+    width: 90%;
+  }
+}
+
+/* Ensure toast notifications always appear above any popup */
+.Toastify__toast-container {
+  z-index: 10000 !important;
+}

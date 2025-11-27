@@ -1,0 +1,143 @@
+.orders {
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* header */
+.orders-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.orders-head h3 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.orders-filters {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* shared controls */
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.control-row { display: flex; gap: 8px; align-items: center; }
+.control-row.daterow { gap: 10px; }
+.control label { font-size: 12px; color: #666; }
+
+.date-input {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+  width: 180px;
+  cursor: pointer;
+}
+
+/* list */
+.orders-count {
+  margin: 6px 2px 12px;
+  color: #444;
+  font-weight: 600;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* card with image removed: two columns -> content | status */
+.order {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #f1c5bb;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.order-content { display: flex; flex-direction: column; gap: 8px; }
+.order-items { font-weight: 700; margin: 0; }
+.order-customer { margin: 0; color: #444; }
+
+.order-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 12px;
+  color: #374151;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+.chip.ts { color: #6b7280; }
+
+/* status select */
+.order-status {
+  justify-self: end;
+  align-self: center;
+  width: 240px;
+  max-width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #f1c5bb;
+  background: #ffe3dd;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* datepicker popover look */
+.react-datepicker {
+  font-family: inherit;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.react-datepicker__header {
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--in-range,
+.react-datepicker__day--in-selecting-range {
+  background-color: tomato !important;
+  color: #fff !important;
+}
+.react-datepicker__day:hover { background: #ffe5de; }
+
+/* responsive tweaks */
+@media (max-width: 1100px) {
+  .orders-head { flex-direction: column; align-items: flex-start; }
+  .order {
+    grid-template-columns: 1fr;    /* stack */
+  }
+  .order-status { width: 100%; }
+  .date-input { width: 100%; min-width: 160px; }
+}
+
+/* print button */
+.btn {
+  border: 1px solid #f1c5bb;
+  background: #ffe3dd;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover { filter: brightness(0.98); }
+.btn:active { transform: translateY(1px); }

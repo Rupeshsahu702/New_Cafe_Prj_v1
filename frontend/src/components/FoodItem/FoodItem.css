@@ -1,0 +1,117 @@
+/* Card container */
+.fi-card {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.15s ease, transform 0.08s ease;
+  overflow: hidden;
+}
+
+.fi-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Content (no image, just text + controls) */
+.fi-main {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+/* Title & optional description */
+.fi-title {
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin: 2px 0 0;
+}
+
+.fi-desc {
+  font-size: 13px;
+  line-height: 1.35;
+  color: #6b6b6b;
+  display: -webkit-box;
+  /* truncate to 2 lines */
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer row */
+.fi-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+/* Price */
+.fi-price {
+  font-weight: 700;
+  color: #1f1f1f;
+}
+
+/* Add button when qty = 0 */
+.fi-add {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #ffd1c6;
+  background: #ffe7e1;
+  color: #c14d36;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fi-add:hover {
+  background: #ffdcd3;
+}
+
+/* Quantity cluster when qty > 0 */
+.fi-qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff7f4;
+  border: 1px solid #ffd1c6;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.fi-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #ffd1c6;
+  background: #ffe7e1;
+  color: #c14d36;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fi-btn:hover {
+  background: #ffdcd3;
+}
+
+.fi-count {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Responsive niceties */
+@media (max-width: 640px) {
+  .fi-title {
+    font-size: 15px;
+  }
+
+  .fi-desc {
+    font-size: 12px;
+  }
+}

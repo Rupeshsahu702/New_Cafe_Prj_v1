@@ -1,0 +1,127 @@
+/* full-screen overlay */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: grid;
+  place-items: center;
+  z-index: 10000;
+}
+
+/* modal card */
+.login-card {
+  width: 92vw;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.login-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f1dad3;
+  background: linear-gradient(0deg, #fff 0%, #fff8f6 100%);
+}
+.login-title {
+  font-weight: 800;
+  font-size: 18px;
+}
+.login-close {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.login-body {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+}
+.login-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+.login-input {
+  border: 1px solid #f1dad3;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+.login-input:focus {
+  border-color: #ff7a59;
+  box-shadow: 0 0 0 4px rgba(255,122,89,.12);
+}
+
+.login-error {
+  color: #d92c20;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.login-btn {
+  margin-top: 6px;
+  border: 1px solid #f1c5bb;
+  background: #ffe3dd;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.login-btn:hover { filter: brightness(0.98); }
+
+.login-foot {
+  padding: 12px 18px;
+  border-top: 1px solid #f1dad3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hint {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* responsive tweaks */
+@media (max-width: 420px) {
+  .login-card { max-width: 96vw; }
+}
+
+/* existing styles from before remain; add the password-specific rules below */
+
+.pw-wrap {
+  position: relative;
+  display: grid;
+}
+.pw-input {
+  padding-right: 44px; /* space for the eye button */
+}
+.pw-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: #fff;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #6b7280;
+}
+.pw-toggle:hover {
+  background: #fff3f0;
+}
+.pw-toggle:active {
+  background: #ffe3dd;
+}

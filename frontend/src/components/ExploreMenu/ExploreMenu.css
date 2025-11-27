@@ -1,0 +1,169 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.explore-menu h1 {
+    color: #262626;
+    font-weight: 500;
+}
+
+.explore-menu-text {
+    max-width: 60%;
+    color: #808080;
+}
+
+/* --- CHANGED --- */
+/* This container will now use Flexbox to arrange the buttons and the list */
+.explore-menu-list-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adds a small space between buttons and the list */
+}
+
+/* Scrollable row of category cards */
+.explore-menu-list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    text-align: center;
+    margin: 20px 0;
+    overflow-x: auto;
+    /* --- CHANGED --- */
+    /* Padding is no longer needed to avoid buttons */
+    padding: 6px 10px;
+    scroll-snap-type: x mandatory;
+    /* Smooth scrolling behavior */
+    scroll-behavior: smooth;
+    /* --- ADDED --- */
+    /* This makes the list take up all available space between the buttons */
+    flex: 1;
+    /* This prevents the list from shrinking or breaking in flex container */
+    min-width: 0;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+    display: none;
+}
+/* ... (rest of .explore-menu-list-item and other styles are unchanged) ... */
+/* Each category behaves like a small card */
+.explore-menu-list-item {
+    --size: clamp(90px, 10vw, 128px);
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    scroll-snap-align: start;
+    outline: none;
+}
+
+/* Uniform circular thumbnail */
+.menu-image {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Name below the image */
+.explore-menu-item-name {
+    color: #2a2a2a;
+    font-size: clamp(14px, 1.2vw, 18px);
+    line-height: 1.25;
+    max-width: calc(var(--size) + 10px);
+    word-break: break-word;
+}
+
+/* Hover micro-interaction */
+.explore-menu-list-item:hover .menu-image {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+/* Selected state: orange ring + glow; label tinted */
+.explore-menu-list-item.active .menu-image {
+    box-shadow:
+        0 0 0 3px #ffffff,
+        0 0 0 6px #ff4c24,
+        0 10px 22px rgba(255, 76, 36, 0.25);
+    transform: translateY(-2px);
+}
+
+.explore-menu-list-item.active .explore-menu-item-name {
+    color: #ff4c24;
+    font-weight: 600;
+}
+
+/* Keyboard focus ring */
+.explore-menu-list-item:focus-visible .menu-image {
+    box-shadow:
+        0 0 0 3px #ffffff,
+        0 0 0 6px #49557e;
+    /* brand blue focus ring */
+}
+
+/* Divider */
+.explore-menu hr {
+    margin: 10px 0;
+    height: 2px;
+    background-color: #e2e2e2;
+    border: none;
+}
+
+/* --- New Scroll Button Styles --- */
+.menu-scroll-btn {
+    /* --- REMOVED --- */
+    /* position: absolute; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    /* z-index: 10; */
+
+    /* Style to match site */
+    background: #ffffff;
+    border: 1px solid #ffded7;
+    color: #ff4c24;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    
+    /* --- ADDED --- */
+    /* This stops the buttons from shrinking when the screen is narrow */
+    flex-shrink: 0;
+}
+
+.menu-scroll-btn:hover {
+    background: #fff4f2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.menu-scroll-btn i {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Responsive copy width */
+@media (max-width: 1050px) {
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+}

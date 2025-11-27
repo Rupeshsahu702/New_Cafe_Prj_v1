@@ -1,0 +1,111 @@
+/* ==== PRINT-ONLY RULES ==== */
+/* Hide the world when printing; show only our ticket */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .printable, .printable * {
+    visibility: visible !important;
+  }
+  .printable {
+    position: fixed;
+    inset: 0;
+    margin: 0 auto;
+    background: #fff;
+    z-index: 999999;
+  }
+}
+
+/* ==== 58mm thermal ticket layout ==== */
+@page {
+  size: 58mm auto;
+  margin: 4mm;
+}
+
+.ticket-root {
+  width: 58mm;
+  margin: 0 auto;
+  font-family: ui-monospace, Menlo, Consolas, "SF Mono", monospace;
+  color: #000;
+}
+
+.ticket {
+  font-size: 12px;
+}
+
+.ticket-header .brand {
+  text-align: center;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.ticket-header .sub {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.ticket-meta {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2px;
+}
+
+.ticket-sep {
+  border-top: 1px solid #000;
+  margin: 8px 0;
+}
+.ticket-sep.dotted {
+  border-top: 1px dotted #000;
+}
+
+.ticket-items .row {
+  display: grid;
+  grid-template-columns: 28px 1fr 60px;
+  gap: 6px;
+  margin: 4px 0;
+}
+.ticket-items .row.head {
+  font-weight: 700;
+  border-bottom: 1px dashed #000;
+  padding-bottom: 4px;
+}
+.col.qty { text-align: left; }
+.col.name { text-align: left; word-break: break-word; }
+.col.price { text-align: right; }
+
+.ticket-totals .line {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+.ticket-totals .total {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.ticket-footer { margin-top: 6px; }
+.ticket-footer .copy {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.cut {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 10px;
+}
+
+/* optional: buttons look decent */
+.btn {
+  border: 1px solid #f1c5bb;
+  background: #ffe3dd;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover { filter: brightness(0.98); }
+.btn:active { transform: translateY(1px); }
